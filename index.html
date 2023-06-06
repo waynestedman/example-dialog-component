@@ -5,21 +5,24 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dialog Component</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/DialogComponent.js"></script>
-    <script>
-      function myFunction() {
-        const element = document.getElementById("myDialog").showModal();
-        element.open = true;
-      }
-    </script>
-  
+    <link rel="stylesheet" href="./src/styles.scss" />
+    <script type="module" src="/src/DialogComponent.js"></script>  
   </head>
   <body>
-    <h1>Dialog (modal) Component</h1>
-    <button onclick="myFunction()">Click to open the dialog</button>
-    <dialog id="myDialog">
-      <dialog-component></dialog-component>
-    </dialog>
+    <main>
+      <h1>Dialog (modal) Component</h1>
+      <button onclick="myFunction()">Click to open the dialog</button>
+      <dialog id="myDialog">
+        <dialog-component></dialog-component>
+      </dialog>
+    </main>
   </body>
+
+  <script>
+    function myFunction() {
+      const element = document.getElementById("myDialog").showModal();
+      element.open = true;
+    }
+  </script>
+
 </html>
