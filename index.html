@@ -11,18 +11,28 @@
   <body>
     <main>
       <h1>Dialog (modal) Component</h1>
-      <button onclick="myFunction()">Click to open the dialog</button>
-      <dialog id="myDialog">
-        <dialog-component></dialog-component>
+      <button onclick="openDialog()">Click to open the dialog</button>
+      <dialog id="dsDialog">
+        <dialog-component 
+          dialogTitle="Title of the dialog"
+          dialogBody="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+        />
       </dialog>
     </main>
   </body>
 
   <script>
-    function myFunction() {
-      const element = document.getElementById("myDialog").showModal();
-      element.open = true;
+    const dialog = document.getElementById("dsDialog");
+    function openDialog() {
+      dialog.showModal();
+      dialog.setAttribute("open", "open");
     }
+    function closeDialog() {
+      console.log('closeDialog');
+      dialog.close();
+      dialog.removeAttribute("open");
+    }
+
   </script>
 
 </html>

@@ -2,8 +2,11 @@ import { html, css, LitElement } from 'lit'
 
 import './DsButton';
 
-// const dialog = document.getElementById("myDialog");
-// console.log('dialog', dialog);
+const dialog = document.getElementById("myDialog");
+
+function showDialog() {
+  dialog.show();
+}
 
 
 export class DialogComponent extends LitElement {
@@ -39,20 +42,27 @@ export class DialogComponent extends LitElement {
   static properties = {
     dialogTitle: {type: String},
     dialogBody: {type: String},
-    // condition: {},
   };
 
-  // constructor() {
-  //   super();
-  //   this.condition = true;
-  // }
+  static properties = {
+    condition: {},
+  };
+
+  constructor() {
+    super();
+    this.condition = true;
+  }
 
   render() {
     return html`
         <h2>${this.dialogTitle}</h2>
-        <button class="close">X</button>
+        <button class="close" @click=${() => {
+          this.condition = !this.condition;
+        }}>X</button>
         <p>${this.dialogBody}</p>
-        <button>Cancel</button>
+        <button @click=${() => {
+          this.condition = !this.condition;
+        }}>Cancel</button>
         <button>Complete process</button>
     `
   }
