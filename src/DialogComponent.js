@@ -2,9 +2,7 @@ import { html, css, LitElement } from 'lit'
 
 import './DsButton';
 
-const dialog = document.getElementById("dsDialog");
-// console.log('dialog', dialog);
-
+// const dialog = document.getElementById("dsDialog");
 
 export class DialogComponent extends LitElement {
   static get styles() {
@@ -12,21 +10,78 @@ export class DialogComponent extends LitElement {
       :host {
         position: relative;
         display: block;
-        border-radius: 10px;
+        border-radius: var(--corner-radius);
         text-align: left;
-        color: #333;
-        background-color: #fff;
-        padding: 0 1rem 2rem 1rem;
-        margin: auto;
-        box-shadow: 5px 7px 10px 0px rgba(0,0,0,0.3);
+        color: var(--dark-gray);
+        background-color: var(--white);
+        padding: 1rem;
+        box-shadow: var(--default-box-shadow);
         max-width: 50ch;
       }
 
       h2 {
-        display: inline-block;
+        margin-block: 0;
       }
+
+      .dialogHeader, .dialogFooter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+/* TODO: 
+      .dialogHeader {
+        position: fixed;
+      }
+*/
+      .dialogTitle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .btn {
+        background-color: transparent;
+        color: var(--dark-gray);
+        border: var(--default-border);
+        border-radius: var(--default-corner-radius);
+        padding: 0.5rem;
+        cursor: pointer;
+        width: 26ch;
+      }
+      
       .close {
-        display: inline-block;
+        width: auto;
+        background: none;
+        color: var(--dark-gray);
+        border: none;
+        border-radius: 50rem;
+        padding-inline: 0.8rem;
+        font-size: var(--default-font-size);
+        font-weight: var(--bold-font-weight);
+      }
+
+      p {
+        width: calc(100% - 1rem);
+      }
+
+      .dialogFooter {
+        justify-content: space-evenly;
+      }
+
+      .complete {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        border: none;
+
+        &:hover {
+          background-color: var(--spectrum-blue);
+          color: var(--dark-gray);
+          border: var(--default-border);
+          box-shadow: none;
+          height: 31px; /* TODO: actually compute this */
+        }
       }
     `
   }
@@ -37,22 +92,25 @@ export class DialogComponent extends LitElement {
     // condition: {},
   };
 
-  // constructor() {
-  //   super();
-  //   this.condition = true;
-  // }
-  closeDialog() {
-    dialog.close();
-    dialog.removeAttribute("open");
-  };
+  // closeDialog() {
+  //   dialog.close();
+  //   dialog.removeAttribute("open");
+  // };
 
   render() {
     return html`
-        <h2>${this.dialogTitle}</h2>
-        <button class="close" onclick="closeDialog()" type="button">X</button>
+        <header class="dialogHeader">
+          <span class="dialogTitle">
+            <img class="icon" src="./src/assets/icon_info.svg" alt="info icon">
+            <h2>${this.dialogTitle}</h2>
+          </span>
+          <button class="btn close" onclick="closeDialog()" type="button">X</button>
+        </header>
         <p>${this.dialogBody}</p>
-        <button class="close" onclick="closeDialog()" type="button">Cancel</button>
-        <button class="complete" onclick="alert('process completed!')" type="button">Complete process</button>
+        <footer class="dialogFooter">
+          <button class="btn" onclick="closeDialog()" type="button">Cancel</button>
+          <button class="btn complete" onclick="alert('process completed!')" type="button">Complete the process</button>
+        </footer>
     `
   }
 }
@@ -61,6 +119,8 @@ window.customElements.define('dialog-component', DialogComponent)
 
 
 /* future refinements:
-- add & remove this component from the DOM -> connectedCallback() & disconnectedCallback() lifecycle methods: https://lit.dev/docs/components/lifecycle/
-- 
+  - make cancel or complete display a result on main page.
+  - clicking outside the dialog should close it.
+  - add & remove this component from the DOM -> connectedCallback() & disconnectedCallback() lifecycle methods: https://lit.dev/docs/components/lifecycle/
+  - make close functionality reside inside the component.
 */

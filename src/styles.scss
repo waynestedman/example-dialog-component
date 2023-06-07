@@ -24,6 +24,35 @@
 }
 
 :root {
+  /* Tokens */
+  --dark-blue: #003057;
+  --spectrum-blue: #0099D8;
+  --backdrop: var(--dark-blue);
+  --white: #FFFFFF;
+  --dark-gray: #333333;
+  --light-gray: #CCCCCC;
+  --accent-orange: #C34A39;
+  --default-font-family: 'Spectrum Sans', sans-serif;
+  --default-font-size: 18px;
+  --default-line-height: 1.5;
+  --default-font-weight: 400;
+  --light-font-weight: 300;
+  --medium-font-weight: 600;
+  --bold-font-weight: 700;
+  --default-corner-radius: 10px;
+  --default-border-width: 1px;
+  --default-border-color: var(--dark-gray);
+  --default-border-style: solid;
+  --default-border: var(--default-border-width) var(--default-border-style) var(--default-border-color);
+  --default-box-shadow: 5px 7px 10px 0px rgba(0, 0, 0, 0.3);
+  --h1: 67.34px;
+  --h2: 50.52px;
+  --h3: 37.9px;
+  --h4: 28.42px;
+  --h5: 21.33px;
+  --p: var(--default-font-size);
+  --small: 14px;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,27 +61,38 @@
   text-size-adjust: 100%;
 }
 
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Spectrum Sans', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: var(--default-font-family);
+  line-height: var(--default-line-height);
+  font-weight: var(--default-font-weight);
   color-scheme: light dark;
-  color: #333;
-  background-color: #ccc;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
   margin: 0;
 }
 
 button {
-  font-family: 'Spectrum Sans', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  background-color: var(--dark-blue);
+  font-family: var(--default-font-family);
+  line-height: var(--default-line-height);
+  font-weight: var(--default-font-weight);
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: var(--default-corner-radius);
+  border: none;
+  box-shadow: var(--default-box-shadow);
 
   &:hover {
-    background-color: #eee;
-    color: #333;
+    background-color: var(--spectrum-blue);
+    color: var(--dark-gray);
+    border: var(--default-border);
+    box-shadow: none;
   }
 }
 
@@ -86,14 +126,15 @@ main {
   // }
 
   &::backdrop {
-  // background-color: rgba(0, 0, 0, 0.5);
-  background-color: rgba(33, 53, 71, 0.5);    
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: #333333;
+    opacity: 0.5;
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--backdrop);
+    background-color: var(--white);
   }
 }
