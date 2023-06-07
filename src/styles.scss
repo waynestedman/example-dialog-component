@@ -94,6 +94,12 @@ button {
     border: var(--default-border);
     box-shadow: none;
   }
+/* for accessibility - keyboard navigation 
+TODO: fix */
+  &:focus-visible {
+    outline: 3px solid blue;
+    padding: 0.4rem;
+  }
 }
 
 main {

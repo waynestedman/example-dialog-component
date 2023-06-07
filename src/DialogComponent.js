@@ -49,6 +49,14 @@ export class DialogComponent extends LitElement {
         padding: 0.5rem;
         cursor: pointer;
         width: 26ch;
+
+/* for accessibility - keyboard navigation 
+TODO: fix this
+*/
+        :focus-visible {
+          outline: 3px solid #333;
+          padding: 0.4rem;
+        }
       }
       
       .close {
