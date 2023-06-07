@@ -20,19 +20,16 @@
       </dialog>
     </main>
   </body>
-
   <script>
+/* this script is just to open the dialog, and can be replaced by by another means within what ever is wrapping the component (React, Vue, Angular app, etc.). The rest of the functionality is controlled within the DialogComponent.js file */
+  // get the Dialog wrapper
     const dialog = document.getElementById("dsDialog");
+
+    // open the dialog
     function openDialog() {
       dialog.showModal();
       dialog.setAttribute("open", "open");
     }
-    function closeDialog() {
-      console.log('closeDialog');
-      dialog.close();
-      dialog.removeAttribute("open");
-    }
-
   </script>
 
 </html>

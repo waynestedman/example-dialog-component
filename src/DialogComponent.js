@@ -7,9 +7,11 @@ import './DsButton';
 
 
 export class DialogComponent extends LitElement {
-  // function closeDialog() {
-  //   dialog.close();
-  // };
+  closeDialog() {
+    dialog.close();
+    dialog.removeAttribute("open");
+  };
+
   static get styles() {
     return css`
       :host {
@@ -31,7 +33,6 @@ export class DialogComponent extends LitElement {
       }
       .close {
         display: inline-block;
-        float: right;
       }
     `
   }
@@ -50,12 +51,18 @@ export class DialogComponent extends LitElement {
   render() {
     return html`
         <h2>${this.dialogTitle}</h2>
-        <button class="close">X</button>
+        <button class="close" onclick="closeDialog()" type="button">X</button>
         <p>${this.dialogBody}</p>
-        <button>Cancel</button>
-        <button>Complete process</button>
+        <button onclick="closeDialog()" type="button">Cancel</button>
+        <button onclick="alert('process completed!')" type="button">Complete process</button>
     `
   }
 }
 
 window.customElements.define('dialog-component', DialogComponent)
+
+
+/* future refinements:
+- add & remove this component from the DOM -> connectedCallback() & disconnectedCallback() lifecycle methods: https://lit.dev/docs/components/lifecycle/
+- 
+*/
