@@ -2,22 +2,16 @@ import { html, css, LitElement } from 'lit'
 
 import './DsButton';
 
-// const dialog = document.getElementById("myDialog");
+const dialog = document.getElementById("dsDialog");
 // console.log('dialog', dialog);
 
 
 export class DialogComponent extends LitElement {
-  closeDialog() {
-    dialog.close();
-    dialog.removeAttribute("open");
-  };
-
   static get styles() {
     return css`
       :host {
         position: relative;
         display: block;
-        /* border: solid 1px var(--color-base-gray-dark); */
         border-radius: 10px;
         text-align: left;
         color: #333;
@@ -25,7 +19,7 @@ export class DialogComponent extends LitElement {
         padding: 0 1rem 2rem 1rem;
         margin: auto;
         box-shadow: 5px 7px 10px 0px rgba(0,0,0,0.3);
-        max-width: 424px;
+        max-width: 50ch;
       }
 
       h2 {
@@ -47,14 +41,18 @@ export class DialogComponent extends LitElement {
   //   super();
   //   this.condition = true;
   // }
+  closeDialog() {
+    dialog.close();
+    dialog.removeAttribute("open");
+  };
 
   render() {
     return html`
         <h2>${this.dialogTitle}</h2>
         <button class="close" onclick="closeDialog()" type="button">X</button>
         <p>${this.dialogBody}</p>
-        <button onclick="closeDialog()" type="button">Cancel</button>
-        <button onclick="alert('process completed!')" type="button">Complete process</button>
+        <button class="close" onclick="closeDialog()" type="button">Cancel</button>
+        <button class="complete" onclick="alert('process completed!')" type="button">Complete process</button>
     `
   }
 }
