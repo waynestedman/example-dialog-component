@@ -110,26 +110,20 @@ main {
   min-height: 100vh;
 }
 
+.grid-col-span-12 {
+  grid-column: span 12;
+}
+
+.container {
+  --column-count: 12;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+}
+
 #dsDialog {
   border: none;
   background: none;
-  // width: 100vw;
-  // height: 100vh;
-  // margin: 0;
-  // padding: 0;
-  // max-width: 100%;
-  // max-height: 100%;
-
-  // &[open] {
-  //   display: flex;
-  //   flex-direction: column;
-  //   place-items: center;
-  //   justify-content: center;
-  // }
-
-  // & > * {
-  //   margin: 0 0 0.5rem 0;
-  // }
 
   &::backdrop {
     // background-color: rgba(0, 0, 0, 0.5);

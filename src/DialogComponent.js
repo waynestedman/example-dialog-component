@@ -9,7 +9,7 @@ export class DialogComponent extends LitElement {
     return css`
       :host {
         position: relative;
-        display: block;
+        display: inline-block;
         border-radius: var(--corner-radius);
         text-align: left;
         color: var(--dark-gray);
