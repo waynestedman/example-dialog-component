@@ -14,9 +14,12 @@ export class DialogComponent extends LitElement {
         text-align: left;
         color: var(--dark-gray);
         background-color: var(--white);
-        padding: 1rem;
+        padding: 1rem 0.25rem;
         box-shadow: var(--default-box-shadow);
-        max-width: 50ch;
+        width: calc(100vw - 0.5rem);;
+        height: 100vh;
+        height: 100dvh; /* not supported by firefox yet */
+        max-width: 600px;
       }
 
       h2 {
@@ -91,6 +94,22 @@ TODO: fix this
           height: 31px; /* TODO: actually compute this */
         }
       }
+
+/* media queries for desktop styling */
+      @media (min-width: 601px) {
+        :host {
+          padding: 1rem;
+          width: 80%;
+          height: auto;
+          max-width: 1320px;
+          max-height: 84%;
+        }
+
+        .dialogFooter {
+          flex-direction: row;
+        }
+      }
+
     `
   }
   

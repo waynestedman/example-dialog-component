@@ -108,6 +108,7 @@ main {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 0.5rem;
 }
 
 /* custom column grid */
@@ -122,17 +123,40 @@ main {
   grid-template-columns: repeat(var(--column-count), 1fr);
 }
 
+// <dialog> in the HTML
 #dsDialog {
+  display: grid;
+  place-items: center;
   border: none;
   background: none;
+  max-width: 600px;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; // not supported by firefox yet
+  padding: 0;
 
   &::backdrop {
     // background-color: rgba(0, 0, 0, 0.5);
     background-color: #333333;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 
+/* media queries for desktop styling */
+@media (min-width: 601px) {
+  main {
+    padding: unset;
+  }
+  #dsDialog {
+    width: 90%;
+    height: auto;
+    max-width: 1320px;
+    max-height: 84%;
+    padding: unset;
+  }
+}
+
+/* media queries for light theme styling */
 @media (prefers-color-scheme: light) {
   :root {
     color: var(--backdrop);
