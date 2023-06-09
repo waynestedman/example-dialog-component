@@ -7,5 +7,8 @@ by Wayne Stedman
 TODOs:
 * implement column based grid
 * implement fixed dialog title/header
-* implement variable(s) to display the dialog's completion status on the main page.
+* refactor script in html to be better incorporated into component.
+* accessibility! Need ARIA attributes and cross-check posters (see figma).
+* unit testing?
+* test with https://www.siteimprove.com/website-checker/ ?
  

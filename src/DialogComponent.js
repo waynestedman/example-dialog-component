@@ -150,8 +150,8 @@ window.customElements.define('dialog-component', DialogComponent)
 
 
 /* future refinements:
-  - make cancel or complete display a result on main page.
+  - make cancel or complete status be assigned from component variable.
+    - make close functionality reside inside the component. https://lit.dev/docs/components/shadow-dom/
   - clicking outside the dialog should close it.
   - add & remove this component from the DOM -> connectedCallback() & disconnectedCallback() lifecycle methods: https://lit.dev/docs/components/lifecycle/
-  - make close functionality reside inside the component. https://lit.dev/docs/components/shadow-dom/
 */
