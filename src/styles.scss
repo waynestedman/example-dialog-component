@@ -125,14 +125,12 @@ main {
 
 // <dialog> in the HTML
 #dsDialog {
-  display: grid;
-  place-items: center;
   border: none;
   background: none;
   max-width: 600px;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh; // not supported by firefox yet
+  width: calc(100vw - 0.25rem);
+  max-height: 100vh;
+  max-height: 100dvh; // not supported by firefox yet
   padding: 0;
 
   &::backdrop {
@@ -149,7 +147,7 @@ main {
   }
   #dsDialog {
     width: 90%;
-    height: auto;
+    // height: auto;
     max-width: 1320px;
     max-height: 84%;
     padding: unset;

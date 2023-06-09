@@ -9,14 +9,16 @@ export class DialogComponent extends LitElement {
     return css`
       :host {
         position: relative;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
         border-radius: var(--corner-radius);
         text-align: left;
         color: var(--dark-gray);
         background-color: var(--white);
+        margin-inline: auto;
         padding: 1rem 0.25rem;
         box-shadow: var(--default-box-shadow);
-        width: calc(100vw - 0.5rem);;
+        width: calc(100vw - 0.5rem);
         height: 100vh;
         height: 100dvh; /* not supported by firefox yet */
         max-width: 600px;
@@ -78,7 +80,9 @@ TODO: fix this
       }
 
       .dialogFooter {
+        flex-direction: column;
         justify-content: space-evenly;
+        gap: 1rem;
       }
 
       .complete {
@@ -136,7 +140,7 @@ TODO: fix this
         <p>${this.dialogBody}</p>
         <footer class="dialogFooter">
           <button class="btn" onclick="closeDialog()" type="button">Cancel</button>
-          <button class="btn complete" onclick="alert('process completed!')" type="button">Complete the process</button>
+          <button class="btn complete" onclick="successCloseDialog()" type="button">Complete the process</button>
         </footer>
     `
   }
@@ -149,5 +153,5 @@ window.customElements.define('dialog-component', DialogComponent)
   - make cancel or complete display a result on main page.
   - clicking outside the dialog should close it.
   - add & remove this component from the DOM -> connectedCallback() & disconnectedCallback() lifecycle methods: https://lit.dev/docs/components/lifecycle/
-  - make close functionality reside inside the component.
+  - make close functionality reside inside the component. https://lit.dev/docs/components/shadow-dom/
 */

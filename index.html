@@ -21,13 +21,14 @@
         </dialog>
   
       <!-- </div> -->
-      <h3>Dialog status is: </h3>
+      <h3 id="status"></h3>
     </main>
   </body>
   <script>
 /* this script is just to open the dialog, and can be replaced by by another means within what ever is wrapping the component (React, Vue, Angular app, etc.). The rest of the functionality is controlled within the DialogComponent.js file */
   // get the Dialog wrapper
     const dialog = document.getElementById("dsDialog");
+    // const status = document.getElementById("status");
 
     // open the dialog
     function openDialog() {
@@ -38,6 +39,13 @@
     function closeDialog() {
       dialog.close();
       dialog.removeAttribute("open");
+      document.getElementById("status").innerHTML = "The dialog's status is: failure";
+    };
+
+    function successCloseDialog() {
+      dialog.close();
+      dialog.removeAttribute("open");
+      document.getElementById("status").innerHTML = "The dialog's status is: success";
     };
 
   </script>
