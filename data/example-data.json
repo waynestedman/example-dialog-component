@@ -1,0 +1,139 @@
+{
+  "plan-options": {
+    "basic": "Basic",
+    "standard": "Standard",
+    "deluxe": "Deluxe"
+  },
+  "devices": {
+    "apple": {
+      "iphone": {
+        "14": {
+          "standard": "iPhone 14",
+          "mini": "iPhone 14 Mini",  
+          "pro": "iPhone 14 Pro",
+          "pro-max": {
+            "name": "iPhone 14 Pro Max",
+            "price": 1299.99,
+            "color": {
+              "black": {
+                "color-name": "Black", 
+                "color-hex": "#000000"
+              },
+              "silver": {
+                "color-name": "Silver", 
+                "color-hex": "#999999"
+              },
+              "gold": {
+                "color-name": "Gold", 
+                "color-hex": "#ee9933"
+              },
+              "green": {
+                "color-name": "Green", 
+                "color-hex": "#113333"
+              }
+            },
+            "storage": {
+              "128": {
+                "storage-size": "128GB",
+                "price": 1299.99
+              },
+              "256": {
+                "storage-size": "256GB",
+                "price": 1399.99
+              },
+              "512": {
+                "storage-size": "512GB",
+                "price": 1499.99
+              },
+              "1tb": {
+                "storage-size": "1TB",
+                "price": 1599.99
+              }
+            }
+          }
+        },
+        "13": {
+          "standard": {
+            "name": "iPhone 13"
+          },
+          "mini": {
+            "name": "iPhone 13 Mini"
+          },
+          "pro": {
+            "name": "iPhone 13 Pro"
+          },
+          "pro-max": {
+            "name": "iPhone 13 Pro Max"
+          }
+        }
+      },
+      "ipad": {
+        "12": {
+          "standard": {
+            "name": "iPad 12.9"
+          },
+          "pro": {
+            "name": "iPad 12.9 Pro"
+          }
+        },
+        "mini": {
+          "standard": "iPad Mini"
+        }
+      }
+    },
+    "google": {
+      "pixel": {
+        "6": {
+          "standard": {
+            "name": "Pixel 6",
+            "color": {
+              "black": {
+                "color-name": "Black", 
+                "color-hex": "#000000"
+              },
+              "white": {
+                "color-name": "White", 
+                "color-hex": "#FFFFFF"
+              },
+              "blue": {
+                "color-name": "Blue", 
+                "color-hex": "#000133"
+              }
+            },
+            "storage": {
+              "128": {
+                "storage-size": "128GB",
+                "price": 599.99
+              },
+              "256": {
+                "storage-size": "256GB",
+                "price": 699.99
+              }
+            }
+          },
+          "pro": {
+            "name": "Pixel 6 Pro"
+          }
+        },
+        "5": {
+          "standard": {
+            "name": "Pixel 5"
+          },
+          "a": {
+            "name": "Pixel 5a"
+          }
+        }
+      }
+    }
+  },
+  "payment-plans": {
+    "installment": {
+      "name": "Installment",
+      "frequency": "per-month"
+    },
+    "in-full": {
+      "name": "In Full",
+      "frequency": "one-time"
+    }
+  }
+}
